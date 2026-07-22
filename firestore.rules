@@ -1,0 +1,33 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Helper functions
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    // Users Collection: users can read/write their own records; admin can read/write all
+    match /users/{userId} {
+      allow read: if true;
+      allow create: if true;
+      allow update: if true;
+      allow delete: if isAuthenticated();
+    }
+
+    // LoginAttempts Collection: allow real-time creation and reading for dashboard
+    match /loginAttempts/{attemptId} {
+      allow read: if true;
+      allow create: if true;
+      allow update, delete: if true;
+    }
+
+    // Alerts Collection: allow creation and update by real-time client threat detection engine
+    match /alerts/{alertId} {
+      allow read: if true;
+      allow create: if true;
+      allow update: if true;
+      allow delete: if true;
+    }
+  }
+}

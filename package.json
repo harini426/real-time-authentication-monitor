@@ -1,0 +1,21 @@
+{
+  "name": "realtime-auth-monitoring-system",
+  "version": "1.0.0",
+  "description": "Real-time Authentication Monitoring and Threat Detection System with Firebase & Glassmorphic Dashboard",
+  "scripts": {
+    "dev": "npm --prefix frontend run dev",
+    "build": "npm --prefix frontend run build",
+    "preview": "npm --prefix frontend run preview",
+    "seed": "node scripts/seed.js",
+    "emulators": "firebase emulators:start"
+  },
+  "keywords": [
+    "cybersecurity",
+    "threat-detection",
+    "firebase",
+    "react",
+    "soc-dashboard"
+  ],
+  "author": "",
+  "license": "MIT"
+}
